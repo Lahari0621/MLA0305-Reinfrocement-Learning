@@ -24,3 +24,23 @@ plt.xlabel("State")
 plt.ylabel("Total Reward")
 
 plt.show()
+
+summary = pd.DataFrame({
+    "Parameter": [
+        "Module Name",
+        "Input File",
+        "Total Records",
+        "Total Episodes",
+        "Total States"
+    ],
+    "Value": [
+        "Load Dataset",
+        "monte_carlo_dataset.csv",
+        len(df),
+        df["Episode"].nunique(),
+        df["State"].nunique()
+    ]
+})
+
+print("\n========== MODULE 1 SUMMARY TABLE ==========\n")
+print(summary.to_string(index=False))
